@@ -1,36 +1,13 @@
 <template>
-  <div>
-    <myheader></myheader>
-    <p v-if="message.length > 0">
-      {{message}}
-    </p>
-    <p v-else>
-      no text
-    </p>
-    <input type="text" v-model="message">
-    <button @click="clear()">clear</button>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+      <router-link to="/about2">About2</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import myheader from './components/myheader'
-
-export default {
-  components: {
-    myheader
-  },
-  data() {
-    return {
-      message: 'Hello World!'
-    }
-  },
-  methods: {
-    clear () {
-      this.message = ''
-    }
-  }
-}
-</script>
 
 <style>
 #app {
