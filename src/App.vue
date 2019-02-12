@@ -1,5 +1,6 @@
 <template>
   <div>
+    <myheader></myheader>
     <p v-if="message.length > 0">
       {{message}}
     </p>
@@ -12,7 +13,12 @@
 </template>
 
 <script>
+import myheader from './components/myheader'
+
 export default {
+  components: {
+    myheader
+  },
   data() {
     return {
       message: 'Hello World!'
