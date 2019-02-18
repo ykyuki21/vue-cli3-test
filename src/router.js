@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About2 from './views/About2.vue'
+import Calendar from './views/Calendar.vue'
 
 Vue.use(Router)
 
@@ -13,7 +14,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
+      path: '#/about',
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -24,6 +25,11 @@ export default new Router({
       path: '/about2',
       name: 'about2',
       component: About2
+    },
+    {
+      path: '/calendar',
+      name: 'calendar',
+      component: Calendar
     }
   ]
 })
