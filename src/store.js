@@ -5,7 +5,11 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    todos: [
+      { id: 1, text: 'task1', done: true },
+      { id: 2, text: 'task2', done: false }
+    ]
   },
   mutations: {
     increment: state => state.count++,
@@ -13,6 +17,17 @@ const store = new Vuex.Store({
   },
   actions: {
 
+  },
+  getters: {
+    doneTodos: state => {
+      return state.todos.filter(todo => todo.done)
+    },
+    doneTodosCount: getters => {
+      return getters.doneTodos.length
+    },
+    getTodoById: (state) => (id) =>{
+      return state.todos.find(todo => todo.id === id)
+    }
   }
 })
 
