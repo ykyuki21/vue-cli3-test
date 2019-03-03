@@ -7,6 +7,12 @@
       <button @click="decrement">-</button>
     </p>
     <button @click="incrementAction">+</button>
+    <div>
+      <h2>Modules</h2>
+        <button @click="incrementModuleA">+</button>
+        <button @click="incrementIfOddModuleA">+(IfOdd)</button>
+        <p>{{ countA }}</p>
+    </div>
   </div>
 </template>
 
@@ -19,7 +25,8 @@ export default {
     msg: String
   },
   computed: mapState({
-    count : 'count'
+    count : 'count',
+    countA : state => state.a.count
   }),
   methods: {
     increment () {
@@ -30,6 +37,12 @@ export default {
     },
     incrementAction () {
       this.$store.dispatch('increment')
+    },
+    incrementModuleA () {
+      this.$store.commit('a/increment')
+    },
+    incrementIfOddModuleA () {
+      this.$store.dispatch('a/incrementIfOdd')
     }
   }
 }
