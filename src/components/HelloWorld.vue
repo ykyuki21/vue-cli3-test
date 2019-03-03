@@ -6,6 +6,7 @@
       <button @click="increment">+</button>
       <button @click="decrement">-</button>
     </p>
+    <button @click="incrementAction">+</button>
   </div>
 </template>
 
@@ -26,6 +27,9 @@ export default {
     },
     decrement () {
       this.$store.commit('decrement', {amount: 5})
+    },
+    incrementAction () {
+      this.$store.dispatch('increment')
     }
   }
 }

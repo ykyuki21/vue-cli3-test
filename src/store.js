@@ -20,7 +20,11 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-
+    increment ({ commit }) {
+      setTimeout(() => {
+        commit('increment', {amount: 1})
+      }, 1000)
+    }
   },
   getters: {
     doneTodos: state => {
